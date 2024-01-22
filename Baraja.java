@@ -51,13 +51,18 @@ public class Baraja {
 	}
 
 	
-	public void ocultarCarta() {
-	// El metodo elige una carta de forma aleatoria en la baraja y le "da la vuelta"
-		// Genereo la posicion aleatoria de 1 a 51
-		int eleccion = (int) (Math.random() * 52);
-		// Uso la operación darVuelta en la carta seleccionada
-		cartas[eleccion].darVuelta();
-
+	public void ocultarCarta(String valor, char palo) {
+	// El metodo busca la carta elegida en la baraja y le "da la vuelta"
+		
+		for (int a = 0; a <cartas.length;a++) {
+			// si el palo y el valor coinciden le doy la vuelta a la carta.
+			if (cartas[a].getPalo()==palo && cartas[a].getValor()==valor) {
+				
+				cartas[a].darVuelta();
+			}
+			
+			
+		}
 	}
 
 	public String cartasArriba() {
@@ -161,6 +166,7 @@ public class Baraja {
 			cartas[a].darVuelta();
 			
 		}
+		
 		
 		
 	}

@@ -11,6 +11,13 @@ public class Carta {
 	// getter del atributo visible	
 		return this.visible;
 	}
+	public char getPalo() {
+		return this.palo;
+	}
+	public String getValor() {
+		
+		return this.valor;
+	}
 	
 	public Carta(int numero, int tipo) {
 		// constructor parametrizado que mediante el uso de switches creara un objeto carta con unos valores concretos.
