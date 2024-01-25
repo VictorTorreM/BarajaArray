@@ -145,20 +145,24 @@ public class Baraja {
 	public void barajar() {
 
 		// Inicio los valores necesarios para hacer el cambio.
-		int num1 = 0;
-		int num2 = 0;
+
+		int i = 0;
 		Carta cartacopia;
-		// El bucle iterará 20 veces para intercambiar 20 posiciones
-		for (int a = 0; a < 20; a++) {
+		// El bucle no termina hasta que se intercambien 20 posiciones distintas
+		while (i < 20) {
 			// Genero las posiciones aleatorias entre 0 y 51
-			num1 = (int) (Math.random() * 52);
-			num2 = (int) (Math.random() * 52);
-			// Copio la carta de la posicion 1 en un objeto carta temporal
-			cartacopia = new Carta(cartas[num1]);
-			// copio el valor de la posicion 2 en la posicion 1
-			cartas[num1] = cartas[num2];
-			// copio el valor de la cartacopia(posicion 1) en la posicion 2
-			cartas[num2] = cartacopia;
+			int num1 = (int) (Math.random() * 52);
+			int num2 = (int) (Math.random() * 52);
+			//Compruebo que las posiciones sean distintas
+			if (num1 != num2) {
+				// Copio la carta de la posicion 1 en un objeto carta temporal
+				cartacopia = new Carta(cartas[num1]);
+				// copio el valor de la posicion 2 en la posicion 1
+				cartas[num1] = cartas[num2];
+				// copio el valor de la cartacopia(posicion 1) en la posicion 2
+				cartas[num2] = cartacopia;
+				i++;
+			}
 
 		}
 
