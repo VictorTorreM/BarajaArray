@@ -8,9 +8,9 @@ public class Start {
 		Baraja baraja = new Baraja();
 		Mano hand = new Mano();
 		baraja.crearMano(hand);
-		System.out.println(hand);
 		System.out.println(baraja);
-//
+		System.out.println(hand);
+
 //		baraja.ocultarCarta("10", 'D');
 //		System.out.println(baraja);
 //

@@ -46,8 +46,26 @@ public class Baraja {
 	}
 
 	public String toString() {
+		// para no imprimir las cartas que estan en la mano me sirvo del atributo esta y
+		// el uso de ifs para no imprimir ciertas catrtas
+		String devolver = "[";
 
-		return Arrays.toString(cartas);
+		for (int a = 0; a < cartas.length; a++) {
+
+			// Solo añado la carta al String si el atributo esta es true
+			if (cartas[a].getEsta()) {
+
+				devolver = devolver + cartas[a] + ",";
+				// para que quede bonito imprimo la ultima carta sin la ","
+				if (a == 51) {
+					devolver = devolver + cartas[a];
+				}
+			}
+
+		}
+		devolver = devolver + "]";
+		return devolver;
+
 	}
 
 	public void ocultarCarta(String valor, char palo) {
@@ -153,7 +171,7 @@ public class Baraja {
 			// Genero las posiciones aleatorias entre 0 y 51
 			int num1 = (int) (Math.random() * 52);
 			int num2 = (int) (Math.random() * 52);
-			//Compruebo que las posiciones sean distintas
+			// Compruebo que las posiciones sean distintas
 			if (num1 != num2) {
 				// Copio la carta de la posicion 1 en un objeto carta temporal
 				cartacopia = new Carta(cartas[num1]);
@@ -180,15 +198,15 @@ public class Baraja {
 	}
 
 	public void crearMano(Mano hand) {
+
 		// El metodo crea una mano en la que se le asignarán 5 cartas aleatorias
 		for (int a = 0; a < 5; a++) {
 			// Elijo la posicion
 			int aleatorio = (int) (Math.random() * 52);
-			// mediante el metodo setCartas que necesita una posicion y una carta
+			// mediante el metodo setCartas que necesita una posicion y una carta lle añado
+			// cartas a la mano
 			hand.setCartas(cartas[aleatorio], a);
-			// Establezco el valor de la carta a null para simular que ya no está en la
-			// baraja
-			cartas[aleatorio] = null;
+
 		}
 	}
 

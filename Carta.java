@@ -5,25 +5,47 @@ public class Carta {
 	private String valor;
 	private char palo;
 	private boolean visible;
-	
-	
+	private boolean esta;
+
 	public boolean getVisible() {
-	// getter del atributo visible	
+		// getter del atributo visible
 		return this.visible;
 	}
+	public void setValor(String valor) {
+		
+		this.valor=valor;
+		
+	}
+	public void setPalo(char palo) {
+		this.palo=palo;
+		
+	}
+
+	public boolean getEsta() {
+		return this.esta;
+	}
+
+	public void setEsta(boolean esta) {
+		this.esta = esta;
+
+	}
+
 	public char getPalo() {
 		return this.palo;
 	}
+
 	public String getValor() {
-		
+
 		return this.valor;
 	}
-	
+
 	public Carta(int numero, int tipo) {
-		// constructor parametrizado que mediante el uso de switches creara un objeto carta con unos valores concretos.
+		// constructor parametrizado que mediante el uso de switches creara un objeto
+		// carta con unos valores concretos.
 		// Por defecto todas las cartas tendrán la visibilidad en true
 		this.visible = true;
-		// Compruebo el valor de la carta 
+		this.esta=true;
+		// Compruebo el valor de la carta
 		switch (numero) {
 
 		case 1:
@@ -76,8 +98,8 @@ public class Carta {
 		case 13:
 			this.valor = "K";
 			break;
-			
-			// compruebo el palo de la carta 
+
+		// compruebo el palo de la carta
 		}
 		switch (tipo) {
 
@@ -98,23 +120,33 @@ public class Carta {
 	}
 
 	public Carta(Carta carta1) {
-		// Constructor copia 
+		// Constructor copia
 		this.palo = carta1.palo;
 		this.valor = carta1.valor;
 		this.visible = carta1.visible;
 	}
+	public Carta(String valor,char palo) {
+		this.visible = true;
+		this.valor=valor;
+		this.palo=palo;
+	}
 
 	public String toString() {
-		// To string que devuelve una cadena de texto dependiendo si la carta es visible o no para poder diferenciarlas
-		if (visible) {
+		// To string que devuelve una cadena de texto dependiendo si la carta es visible
+		// o no para poder diferenciarlas
+		
+
+		 if (visible) {
 			return valor + "" + palo;
 
-		} else
+		} else 
 			return "*" + valor + "" + palo + "*";
+		
+
 	}
 
 	public void darVuelta() {
-	// Metodo que cambia el valor de visible a su negacion.
+		// Metodo que cambia el valor de visible a su negacion.
 		visible = !visible;
 	}
 
