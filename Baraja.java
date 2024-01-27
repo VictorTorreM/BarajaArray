@@ -57,7 +57,7 @@ public class Baraja {
 
 				devolver = devolver + cartas[a] + ",";
 				// para que quede bonito imprimo la ultima carta sin la ","
-				if (a == 51) {
+				if (a == cartas.length-1) {
 					devolver = devolver + cartas[a];
 				}
 			}
